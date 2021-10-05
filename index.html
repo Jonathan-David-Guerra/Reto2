@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Reto 2</title>
+</head>
+
+<body>
+
+
+    <div style="padding-top: 0;">
+        
+        <h1 style="padding: 0; font-size: 335%;">Registros</h1><br>
+
+        <div class="contenedor registro">
+            <h1>Creacion de Fincas</h1>
+            <div>
+                <label>ID</label>
+                <input type="number" name="id" id="id" placeholder="id"><br>
+
+                <label>ADDRESS</label>
+                <input type="text" name="address" id="address" placeholder="address"><br>
+
+                <label>EXENSION</label>
+                <input type="number" name="exension" id="exension" placeholder="exension"><br>
+
+                <label>CATEGORY_ID</label>
+                <input type="number" name="category_id" id="category_id" placeholder="category_id"><br>
+
+                <label>NAME</label>
+                <input type="text" name="name" id="name" placeholder="name"><br>
+            </div>
+            <button onclick=crearFinca()>Registrar</button>
+        </div>
+
+        <div class="contenedor registro">
+            <h1>Registro de Clientes</h1>
+            <div>
+                <label>ID</label>
+                <input type="number" name="idCliente" id="idCliente" placeholder="id"><br>
+
+                <label>NAME</label>
+                <input type="text" name="nameCliente" id="nameCliente" placeholder="name"><br>
+
+                <label>EMAIL</label>
+                <input type="email" name="emailCliente" id="emailCliente" placeholder="email"><br>
+
+                <label>AGE</label>
+                <input type="number" name="ageCliente" id="ageCliente" placeholder="age"><br>
+            </div>
+            <button onclick=registrarCliente()>Registrar</button>
+            <br><br><br><br>
+        </div>
+
+        <div class="contenedor registro">
+            <h1>Registro de Mensajes</h1>
+            <div>
+                <label>ID</label>
+                <input type="number" name="idMensaje" id="idMensaje" placeholder="id"><br>
+
+                <label>MESSAGE</label>
+                <input type="text" name="message" id="mesagge" placeholder="MesaggeText"><br>
+
+            </div>
+            <button onclick=registrarMensaje()>Registrar</button>
+            <br><br><br><br><br><br><br><br><br>
+        </div>
+    </div>
+
+
+
+    <br clear="all" /><br><br>
+
+
+
+    <div>
+        
+        <h1 style="font-size: 335%;">Visualizar Información</h1><br>
+        <div class="marcadores">
+            <a href="#a">Ver Fincas</a>
+            <a href="#b">Ver Clientes</a>
+            <a href="#c">Ver Mensajes</a>
+        </div>
+        <br><br><br>
+        <div class="contenedor" style="width: 45%; margin-left: 25%;padding: 2%;">
+            <div class="contenedor2 registro" id=a>
+                <button class="a" onclick=verFincas()>Presione para Ver Fincas 🔍</button><br><br>
+                <div id="resultadoFincas">
+                </div>
+            </div>
+
+
+            <div id="editFincas">
+                <div class="contenedor registro" style="float: right;width: 35%;background-color: aliceblue">
+                    <h1>Editar Finca</h1>
+                    <div>
+                        <label>ID</label>
+                        <input id="idFin" readonly><br>
+
+                        <label>Nueva_ADDRESS</label>
+                        <input type="text" name="address" id="addressFin" placeholder="address"><br>
+
+                        <label>Nueva_EXENSION</label>
+                        <input type="number" name="exension" id="exensionFin" placeholder="exension"><br>
+
+                        <label>Nueva_CATEGORY_ID</label>
+                        <input type="number" name="category_id" id="category_idFin" placeholder="category_id"><br>
+
+                        <label>Nueva_NAME</label>
+                        <input type="text" name="name" id="nameFin" placeholder="name"><br>
+                    </div>
+                    <button onclick=editarFinca()>Editar</button>
+                    <br><br>
+
+                </div>
+            </div>
+
+
+
+            <br clear="all" />
+            <br>
+<hr>
+
+
+            <div class="contenedor2 registro" id=b>
+                <button class="a" onclick=verClientes()>Presione para Ver Clientes 🔍</button><br><br>
+                <div id="resultadoClientes">
+                </div>
+            </div>
+
+
+            <div class="contenedor registro" style="float: right;width: 35%;background-color: aliceblue">
+                <h1>Edición de Clientes</h1>
+                <div>
+                    <label>ID</label>
+                    <input id="idCli" readonly><br>
+
+                    <label>NAME</label>
+                    <input type="text" name="nameCliente" id="nameCli" placeholder="name"><br>
+
+                    <label>EMAIL</label>
+                    <input type="email" name="emailCliente" id="emailCli" placeholder="email"><br>
+
+                    <label>AGE</label>
+                    <input type="number" name="ageCliente" id="ageCli" placeholder="age"><br>
+                </div>
+                <button onclick=editarCliente()>Editar</button>
+                <br><br>
+            </div>
+
+
+
+            <br clear="all" />
+            <br>
+<hr>
+
+
+            <div class="contenedor2 registro" id=c>
+                <button class="a" onclick=verMensajes()>Presione para Ver Mensajes 🔍</button><br><br>
+                <div id="resultadoMensajes">
+                </div>
+            </div>
+
+            <div id="editMensajes">
+                <div class="contenedor registro" style="float: right;width: 35%;background-color: aliceblue">
+                    <h1>Edición de Mensajes</h1>
+                    <div>
+                        <label>ID</label>
+                        <input id="idEdit" readonly ></input>
+
+                        <label>Nuevo_MESSAGE</label>
+                        <input type="text" name="messageedit" id="mesaggeedit" placeholder="MesaggeText"><br>
+
+                    </div>
+                    <button onclick=editarMensaje()>Editar</button>
+
+                    <br><br><br><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br clear="all" /> <br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/Funciones.js"></script>
+</body>
+
+</html>
